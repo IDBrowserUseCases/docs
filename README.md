@@ -26,3 +26,12 @@ Scenarios
 - multiple simultaneous sessions (eg SPA calling dropbox and google drive API)
 - backchannel flows
 - opaque tokens
+
+## Actions
+
+- define template
+---- Protocol/grant
+---- Privacy considerations
+---- Description fo the flow
+---- B2C/B2E/B2B
+---- 
