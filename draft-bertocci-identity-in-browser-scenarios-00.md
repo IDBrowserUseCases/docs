@@ -18,7 +18,6 @@ author:
     name: Vittorio Bertocci
     organization: Auth0
     email: vittorio@auth0.com
- -
     ins: G.
     name: George Fletcher
     organization: Verizon Media
