@@ -1,4 +1,4 @@
-# Contributing to the Catalog of Identity Use Cases Levereaging Web Browsers
+# Contributing to the Catalog of Identity Use Cases Leveraging Web Browsers
 
 Before submitting feedback and contributions, please familiarize yourself with our current issues list and review the [working
 group home page](https://datatracker.ietf.org/wg/oauth/documents/). If you're

@@ -1,45 +1,4 @@
----
-title: Identity Use Cases in Browser Catalog
-abbrev: TODO - Abbreviation
-docname: draft-todo-your-name-here
-category: info
-
-ipr: trust200902
-area: General
-workgroup: oauth
-keyword: Internet-Draft
-
-stand_alone: yes
-pi: [toc, sortrefs, symrefs]
-
-author:
- -
-    ins: V.
-    name: Vittorio Bertocci
-    org: Auth0
-    email: vittorio@auth0.com
--
-    ins: G.
-    name: George Fletcher
-    org: Verizon Media
-    email: gffletch@aol.com
-
-normative:
-  RFC2119:
-
-informative:
-
-
-
---- abstract
-
-This informational document aims to gather in a single place all the most important scenarios in which identity protocols in current use leverage web browser features to achieve their goals and deliver their intended user experience.
-The purpose of compiling this scenario collection is to make it easier for the identity community to engage with the browser vendors, and in particular to preserve (or enhance) user experience and expressive power of the identity protocols in mainstream use as browsers introduce new privacy preserving restrictions and new identity tailored features.
-By providing a single artifact, listing scenarios in a consistent format, we hope to anchor the conversation on concrete outcomes and impact of changes on end users, developers, providers and in general everyone contributing to identity in the industry.
-
---- middle
-
-# Overview
+# Overview {#overview}
 
 As attempts to profile and track user activities on the web intensify, leading to increasingly egregious privacy violations, browser vendors introduce new constraints meant to thwart known tracking techniques.
 As they do so, however, they often end up breaking legitimate use cases as well- with identity protocols features such as single sign on, token renewals and the like being disptoportionally affected.
@@ -92,29 +51,18 @@ All submissions will be discussed on the [mailing list](https://www.ietf.org/mai
 
 # The Use Case Template {#usecasestemplate}
 
-todo Details on how to use the template.
+{{scenarios.md}}
 
-# Use Cases {#usecases}
+# Acknowledgements {#Acknowledgements}
+      
 
-Empty for now
+    
 
+# IANA Considerations {#IANA}
+      
+  This draft includes no request to IANA.
+    
 
-
-
-# Security Considerations
-
+# Security Considerations {#Security}
+      
 This document has no security considerations. Readers should refer to the security considerations of the specifications references by each of the individual use cases.
-
-# IANA Considerations
-
-This document has no IANA actions.
-
-
-
---- back
-
-# Acknowledgments
-{:numbered="false"}
-
-Thanks to everyone who helped create the tools that let us use Markdown to create 
-Internet Drafts.
