@@ -2,8 +2,8 @@
 
 As attempts to profile and track user activities on the web intensify, leading to increasingly egregious privacy violations, browser vendors introduce new constraints meant to thwart known tracking techniques.
 As they do so, however, they often end up breaking legitimate use cases as well- with identity protocols features such as single sign on, token renewals and the like being disptoportionally affected.
-Conscious of those effects and committed to preserve user experience, browser vendors are working on dedicated identity API that aim at preserving and enhancing the user experience in identity transactions, without relying on the general purpose artifacts on whihc current identity protocols depend on. 
-One key challenge that is emerging in the process is that browser vendors tend to design around a limited set of well-known, consumer-only use cases, classifying most other cases as enterprise use cases hence solvable by exceptions and local business policies, whereas that is often not the case (e.g., single sign on is a common requirements across web properties even for consumer services, such as online managines form the same publisher) or the expected solutions (e.g. companies deploying MDM and managing policies on their employees and controbuters machines) are not always viable. Discussions between browser vendors and identity experts are not always easy, and are frequently repeated whenever the individuals and initiatives involved change. This makes progress difficult.
+Conscious of those effects and committed to preserve user experience, browser vendors are working on dedicated identity API that aim at preserving and enhancing the user experience in identity transactions, without relying on the general purpose artifacts on which current identity protocols depend on. 
+One key challenge that is emerging in the process is that browser vendors tend to design around a limited set of well-known, consumer-only use cases, classifying most other cases as enterprise use cases hence solvable by exceptions and local business policies, whereas that is often not the case (e.g., single sign on is a common requirements across web properties even for consumer services, such as online managines form the same publisher) or the expected solutions (e.g. companies deploying MDM and managing policies on their employees and contributors machines) are not always viable. Discussions between browser vendors and identity experts are not always easy, and are frequently repeated whenever the individuals and initiatives involved change. This makes progress difficult.
 This infomational document is a collection of use cases in which identity protocols depend on web browser features to perform their intended function. By gathering the main use cases in a single, shared artifact, and by describing every use case thru a fixed schema designed to surface the most salient characteristics germane to the identity-browser features discussion, we aim to provide a tool to facilitate conversations between browser vendors and identity experts.
 This is meant to be a living document, constantly gathering and discussing scenarios contribuitions (via dedicated GitHub repository and OAuth working group mailing list) and periodically incorporating new entries in the main document. The contribution process is described in {{contributionprocess}}. 
 
@@ -14,6 +14,7 @@ This document considers in scope scenarios and use cases for which all the follo
 - can be from any mainstream identity and authorization protocol specification, regardless of standard bodies affiliation: e.g. OAuth, OpenID Connect, SAML, etc.
 - must require use of browser features (e.g. cookies, redirects, decorated links, HTTP headers, local storage etc) for at least part of its sequence of messages.
 - can involve, but isn't limited to: establishing a user session, obtaining credentials and intermediate artifacts (e.g. OAuth2 authorization codes).
+
 The following is considered out of scope:
 - any scenario or protocol not currently in mainstream use, regardless of standardization status.
 - any scenario not using a web broweser in any capacity.
@@ -29,8 +30,16 @@ when, and only when, they appear in all capitals, as shown here.
 
 # Contribution Process {#contributionprocess}
 
+Before submitting feedback and contributions, please familiarize yourself with our current issues list and review the [working
+group home page](https://datatracker.ietf.org/wg/oauth/documents/). If you're
+new to this, you may also want to read the [Tao of the
+IETF](https://www.ietf.org/tao.html).
+
+Be aware that all contributions to the specification fall under the "NOTE WELL"
+terms outlined [here](https://www.ietf.org/about/note-well/).
+
 This informational draft is meant to be a living document, where new scenarios and refinement of the current ones will keep being added as needed.
-This work originated in the [IETF working group for OAuth](https://datatracker.ietf.org/wg/oauth/documents/), however we hope to gather contributions from the entire identity community regardless of affiliation. For details on the formal contribution process, please refer to [CONTRIBUTING.md](CONTRIBUTING.md).
+This work originated in the [IETF working group for OAuth](https://datatracker.ietf.org/wg/oauth/documents/), however we hope to gather contributions from the entire identity community, regardless of affiliation. 
 Most of the work will happen on https://github.com/IDBrowserUseCases/docs, a GitHub repository meant to facilitate contributions from the community as summarized below. 
 
 ## Contributing Scenarios
@@ -38,12 +47,13 @@ Most of the work will happen on https://github.com/IDBrowserUseCases/docs, a Git
 Each scenario is captured in a document following the template described in {{usecasestemplate}}.
 You can find all contributed scenarios in [docs/src/scenarios](https://github.com/IDBrowserUseCases/docs/tree/main/src/).
 If you want to contribute a new scenario:
-1. Please check [CONTRIBUTING.md](CONTRIBUTING.md) and ensure that you meet all requirements
+1. Please read the preamble in this section and ensure that you meet all requirements
 2. Verify that your scenario isn't already captured in any of the documents in [docs/src/scenarios](https://github.com/IDBrowserUseCases/docs/tree/main/src/scenarios). If it is a variant of an already captured scenario, please consider bringing it up on the [mailing list](https://www.ietf.org/mailman/listinfo/oauth) instead.
-3. If your scenario is new, please create a local copy of SCENARIOTEMPLATE.md TODO add path
+3. If your scenario is new, please fork the repo and create a local copy of SCENARIOTEMPLATE.md, renaming your file to match the format protocolname_protocolscenario.md
 4. Edit your local copy by filing the appropriate sections of the template, see {{usecasestemplate}} for details.
-5. Once you are ready, please rename your file to match the format protocolname_protocolscenario.md and submit a PR to add it to the scenarios folder
+5. Once you are ready, please submit a PR to add the new doc to the scenarios folder
 6. Monitor the [mailing list](https://www.ietf.org/mailman/listinfo/oauth) for discussions and requests for clarification
+
 
 ## Discussing Scenarios Details and Inclusion
 

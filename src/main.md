@@ -5,8 +5,8 @@ ipr = "trust200902"
 area = "Security"
 workgroup = "Web Authorization Protocol"
 keyword = ["security", "oauth2", "best current practice"]
-
-date = 2020-04-05T18:00:00Z
+category = "info"
+date = 2021-01-04T18:00:00Z
 
 [seriesInfo]
 name = "Internet-Draft"
