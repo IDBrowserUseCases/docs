@@ -15,20 +15,20 @@
 
 #### Browser Features Required
 [todo: delete all the ones that don't apply, add anything not listed]
-1st party Cookie
-3rd party cookies
-Redirect with link decoration
-Form post
-Local Storage
-IFrames
-JavaScript
+- 1st party Cookie
+- 3rd party cookies
+- Redirect with link decoration
+- Form post
+- Local Storage
+- IFrames
+- JavaScript
 
 ##### Target Audience
 [todo: delete all the ones that don't apply, add anything not listed]
-B2C
-B2E
-B2B
-G2C
+- B2C
+- B2E
+- B2B
+- G2C
 
 #### Adoption
 [todo] Enumeration of products, industries, vendors that rely on this scenario as described.
