@@ -3,7 +3,7 @@ TODO Brief description of the scenario.
 
 ### Summary
 
-#### Contributor 
+##### Contributor 
 - Name: TODO
 - Organization: TODO
 - Email: TODO
@@ -11,10 +11,10 @@ TODO Brief description of the scenario.
 #### Protocol
 - Name: TODO SAML|OIDC|OAUTH2|Other(specify)
 - Grant/flow (if applicable): TODO eg. Implicit|Hybrid|AuthCode|SAMLArtifact|etc
-- Reference: TODO aa https://linktospecandsection
+- Reference: TODO [aa](https://linktospecandsection)
 
 #### Browser Features Required
-todo: delete all the ones that don't apply, add anything not listed
+[todo: delete all the ones that don't apply, add anything not listed]
 - 1st party Cookie
 - 3rd party cookies
 - Redirect with link decoration
@@ -24,7 +24,7 @@ todo: delete all the ones that don't apply, add anything not listed
 - JavaScript
 
 ##### Target Audience
-todo: delete all the ones that don't apply, add anything not listed
+[todo: delete all the ones that don't apply, add anything not listed]
 - B2C
 - B2E
 - B2B
