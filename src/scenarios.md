@@ -1,3 +1,3 @@
 # Scenarios {#scenarios}
 
-{{scenario1.md}}
+{{scenarios/scenario1.md}}
