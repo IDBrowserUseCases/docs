@@ -10,7 +10,7 @@
 <author initials="G." surname="Fletcher" fullname="George Fletcher"><organization>Verizon Media</organization><address><postal><street></street>
 </postal><email>gffletch@aol.com</email>
 </address></author>
-<date year="2021" month="January" day="20"></date>
+<date year="2021" month="January" day="4"></date>
 <area>Security</area>
 <workgroup>Web Authorization Protocol</workgroup>
 <keyword>security</keyword>
@@ -125,19 +125,19 @@ Anything not fitting any of the sections above that is relevant for understandin
 
 <section anchor="scenarios"><name>Scenarios</name>
 
-<section anchor="todo-scenarionew-title"><name>TODO ScenarioNEW Title</name>
-<t>TODO Brief description of the scenario.</t>
+<section anchor="openid-connect-redirect-based-sign-in-via-form-post"><name>OpenID Connect Redirect Based Sign in via Form POST</name>
+<t>Web application RP1 offers sign in/sign up functionality for users of identity provider IP1, using OpenID Connect implicit flow and form_post. Ignoring how IP1 auths the user, apart from the fact that successful auth results in a cookie in IP1 domain..</t>
 
 <section anchor="summary"><name>Summary</name>
 
 <section anchor="contributor"><name>Contributor</name>
 
 <ul>
-<li><t>Name: TODO</t>
+<li><t>Name: Vittorio Bertocci</t>
 </li>
-<li><t>Organization: TODO</t>
+<li><t>Organization: Auth0 Inc</t>
 </li>
-<li><t>Email: TODO</t>
+<li><t>Email: vittorio@auth0.com</t>
 </li>
 </ul>
 </section>
@@ -145,31 +145,29 @@ Anything not fitting any of the sections above that is relevant for understandin
 <section anchor="protocol"><name>Protocol</name>
 
 <ul>
-<li><t>Name: TODO SAML|OIDC|OAUTH2|Other(specify)</t>
+<li><t>Name: OpenID Connect</t>
 </li>
-<li><t>Grant/flow (if applicable): TODO eg. Implicit|Hybrid|AuthCode|SAMLArtifact|etc</t>
+<li><t>Grant/flow (if applicable): Implicit flow with form post</t>
 </li>
-<li><t>Reference: TODO aa <eref target="https://linktospecandsection">https://linktospecandsection</eref></t>
+<li><t>Reference: see the (OpenID Connect Implicit flow)[<eref target="https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth">https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth</eref>] and (OAuth 2.0 Form Post Response Mode)[<eref target="https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html">https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html</eref>].</t>
 </li>
 </ul>
 </section>
 
 <section anchor="browser-features-required"><name>Browser Features Required</name>
-<t>todo: delete all the ones that don't apply, add anything not listed
-- 1st party Cookie
-- 3rd party cookies
-- Redirect with link decoration
+<t>Per legs of the flow:
+RP1-&gt;IP1<br />
+- 1st party cookie (RP1 saves nonce)
+- Redirect
+- Decorated links
+- 1st party cookie (IP1 saves its session cookie upon successful authentication)<br />
+IP1-&gt;RP1
 - Form post
-- Local Storage
-- IFrames
-- JavaScript</t>
+- 1st party cookie (nonce carrying cookie)
+- Javascript (autopost)</t>
 
 <section anchor="target-audience"><name>Target Audience</name>
-<t>todo: delete all the ones that don't apply, add anything not listed
-- B2C
-- B2E
-- B2B
-- G2C</t>
+<t>This patters applies to every audience, across the board</t>
 </section>
 </section>
 
@@ -183,14 +181,86 @@ Anything not fitting any of the sections above that is relevant for understandin
 </section>
 
 <section anchor="intended-user-experience"><name>Intended User Experience</name>
-<t>TODO long form description of the intended user experience, with particular attention on the desired outcomes (eg no visible prompt in SSO scenarios)</t>
+<t>User navigates to RP1 without any pre existing session in place. Once there, either the user clicks on something (protected route, login button) or the app determines an authentication operation is immediately required. This causes the browser to be redirected to IP1, where the user is presented with authentication prompts (details of the authentication factors/mechanics omitted in this particular scenario). Upon successful authentication, the browser is redirected to RP1, and the user is now signed in RP1.</t>
 </section>
 
 <section anchor="privacy-considerations"><name>Privacy Considerations</name>
-<t>TODO long form description of privacy characteristics of the scenario, with particular attention to aspects affecting the browser (eg presence of browser-readable artifacts carrying user info, use of global|pairwise|no identifiers, etc).</t>
+<t>An ID token does transit thru the browser, however
+1. It’s not meant for the browser. Format might change. It might be encrypted.
+2. It might or might not contain profile user attributes</t>
 </section>
 
 <section anchor="miscellaneous"><name>Miscellaneous</name>
+<t>TODO anything not fitting any of the sections above that is relevant for understanding how the scenario might be affected by browser changes.</t>
+</section>
+</section>
+
+<section anchor="todo-scenario-title"><name>TODO Scenario Title</name>
+<t>TODO Brief description of the scenario. This is the template source.</t>
+
+<section anchor="summary-1"><name>Summary</name>
+
+<section anchor="contributor-1"><name>Contributor</name>
+
+<ul>
+<li><t>Name: TODO</t>
+</li>
+<li><t>Organization: TODO</t>
+</li>
+<li><t>Email: TODO</t>
+</li>
+</ul>
+</section>
+
+<section anchor="protocol-1"><name>Protocol</name>
+
+<ul>
+<li><t>Name: TODO SAML|OIDC|OAUTH2|Other(specify)</t>
+</li>
+<li><t>Grant/flow (if applicable): TODO eg. Implicit|Hybrid|AuthCode|SAMLArtifact|etc</t>
+</li>
+<li><t>Reference: TODO aa <eref target="https://linktospecandsection">https://linktospecandsection</eref></t>
+</li>
+</ul>
+</section>
+
+<section anchor="browser-features-required-1"><name>Browser Features Required</name>
+<t>todo: delete all the ones that don't apply, add anything not listed
+- 1st party Cookie
+- 3rd party cookies
+- Redirect with link decoration
+- Form post
+- Local Storage
+- IFrames
+- JavaScript</t>
+
+<section anchor="target-audience-1"><name>Target Audience</name>
+<t>todo: delete all the ones that don't apply, add anything not listed
+- B2C
+- B2E
+- B2B
+- G2C</t>
+</section>
+</section>
+
+<section anchor="adoption-1"><name>Adoption</name>
+<t>TODO Enumeration of products, industries, vendors that rely on this scenario as described.</t>
+</section>
+</section>
+
+<section anchor="description-of-the-flow-1"><name>Description Of The Flow</name>
+<t>TODO long form description of the flow, including start state, end state, and sequence diagram when possible</t>
+</section>
+
+<section anchor="intended-user-experience-1"><name>Intended User Experience</name>
+<t>TODO long form description of the intended user experience, with particular attention on the desired outcomes (eg no visible prompt in SSO scenarios)</t>
+</section>
+
+<section anchor="privacy-considerations-1"><name>Privacy Considerations</name>
+<t>TODO long form description of privacy characteristics of the scenario, with particular attention to aspects affecting the browser (eg presence of browser-readable artifacts carrying user info, use of global|pairwise|no identifiers, etc).</t>
+</section>
+
+<section anchor="miscellaneous-1"><name>Miscellaneous</name>
 <t>TODO anything not fitting any of the sections above that is relevant for understanding how the scenario might be affected by browser changes.</t>
 </section>
 </section>
