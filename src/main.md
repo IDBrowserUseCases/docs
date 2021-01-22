@@ -4,9 +4,9 @@ abbrev = "browser-use-cases"
 ipr = "trust200902"
 area = "Security"
 workgroup = "Web Authorization Protocol"
-keyword = ["security", "oauth2", "best current practice"]
+keyword = ["security", "oauth2", "openid connect", "SAML"]
 category = "info"
-date = 2021-01-04T18:00:00Z
+date = 2021-01-22T11:30:00Z
 
 [seriesInfo]
 name = "Internet-Draft"

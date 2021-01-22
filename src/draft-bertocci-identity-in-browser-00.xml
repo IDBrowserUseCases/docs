@@ -10,12 +10,13 @@
 <author initials="G." surname="Fletcher" fullname="George Fletcher"><organization>Verizon Media</organization><address><postal><street></street>
 </postal><email>gffletch@aol.com</email>
 </address></author>
-<date year="2021" month="January" day="4"></date>
+<date year="2021" month="January" day="22"></date>
 <area>Security</area>
 <workgroup>Web Authorization Protocol</workgroup>
 <keyword>security</keyword>
 <keyword>oauth2</keyword>
-<keyword>best current practice</keyword>
+<keyword>openid connect</keyword>
+<keyword>SAML</keyword>
 
 <abstract>
 <t>This informational document aims to gather in a single place all the most important scenarios in which identity protocols in current use leverage web browser features to achieve their goals and deliver their intended user experience.
