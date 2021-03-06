@@ -42,7 +42,7 @@ _Description of the flow, including entities coming into play, begin state, end 
 
 The user attempts to access a web application (“service”) protected by a piece of middleware known as a “Service Provider” or “SP”. This middleware looks for the presence of a signed and/or encrypted SAML authentication/authorization token in the form of a SAML assertion in the user’s state maintained by the SP. If no such token exists, and the user is attempting to access a resource protected by the SP’s policy, the user is redirected to an Identity Provider (“IdP”) Discovery flow such as **[TEMP link to Heather’s scenario for discovery]**[^4]. The user selects their IdP from hundreds or thousands of such IdPs in global multilateral SAML metadata[^5], or if they have saved an IdP selection, they simply click a login button as specified in the previously mentioned discovery flow. In some cases, there is no discovery as far as the user is aware, and they are simply sent to their IdP without being prompted. In any case, they are redirected to their home organization’s IdP along with an optionally-signed authentication request from the SP, in samlRequest argument. At the IdP, the user authenticates using whatever method they have available and that their IdP supports. In some cases, an SP may request (require or prefer) a specific login method as part of its authentication request. This authentication could use WebAuthN, X.509 personal certificate, username/password/push notification, etc. The IdP looks up SAML metadata for the SP which issued the request, and if signed, verifies the signature using the public key associated with a “signing” or “any” use, for the SP, published in metadata.
 
-If the user successfully authenticates, the IdP inspects a combination of: \
+If the user successfully authenticates, the IdP inspects a combination of: 
 1) The list of requested attributes that the SP publishes in metadata
 
 2) Its own default attribute release policy for that SP or an entire class of SPs to which the SP belongs (example: “All Reserach and Scholarship IdPs in my Federation Metadata”[^6]
@@ -86,13 +86,7 @@ The [academic research enterprise of nearly every developed country on the plane
 
 US and international funding agencies
 
-US real estate agents
-
-Global pharmaceutical industry
-
 Global academic and research publishers
-
-The US defense industry (federations like “EXOSTAR”, etc.)
 
 ….
 
@@ -106,22 +100,22 @@ _Anything not fitting any of the sections above that is relevant for understandi
 ## Notes
 
 [^1]:
-     [https://www.oasis-open.org/committees/download.php/35389/sstc-saml-profiles-errata-2.0-wd-06-diff.pdf](https://www.oasis-open.org/committees/download.php/35389/sstc-saml-profiles-errata-2.0-wd-06-diff.pdf) 
+     https://www.oasis-open.org/committees/download.php/35389/sstc-saml-profiles-errata-2.0-wd-06-diff.pdf 
 
 [^2]:
-     [https://kantarainitiative.github.io/SAMLprofiles/fedinterop.html](https://kantarainitiative.github.io/SAMLprofiles/fedinterop.html) 
+     https://kantarainitiative.github.io/SAMLprofiles/fedinterop.html
 
 [^3]:
-     [https://kantarainitiative.github.io/SAMLprofiles/saml2int.html](https://kantarainitiative.github.io/SAMLprofiles/saml2int.html) 
+     https://kantarainitiative.github.io/SAMLprofiles/saml2int.html
 
 [^4]:
-     [https://github.com/IDBrowserUseCases/docs/pull/2/commits/d88f092663d44478e7d85022c800a6a785b65b0c](https://github.com/IDBrowserUseCases/docs/pull/2/commits/d88f092663d44478e7d85022c800a6a785b65b0c) 
+     https://github.com/IDBrowserUseCases/docs/pull/2/commits/d88f092663d44478e7d85022c800a6a785b65b0c 
 
 [^5]:
-     [https://technical.edugain.org/](https://technical.edugain.org/) 
+     https://technical.edugain.org
 
 [^6]:
-     [https://refeds.org/category/research-and-scholarship](https://refeds.org/category/research-and-scholarship) 
+     https://refeds.org/category/research-and-scholarship 
 
 [^7]:
      https://edugain.org/
