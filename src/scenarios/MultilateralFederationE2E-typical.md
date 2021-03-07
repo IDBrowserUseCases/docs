@@ -12,7 +12,7 @@ Nicole Roy - University Corporation for Advanced Internet Development dba Intern
 
 Heather Flanagan - Spherical Cow Group
 
-_$yournamehere $yourorghere_
+Chris Phillips - CANARIE Inc. 
 
 
 ### Protocol
@@ -70,25 +70,118 @@ This use case is U2U (user to user) - users should be able to pick what applicat
 
 _If known or easy to assess, this section enumerates notable products, industries, vendors that rely on the scenario as described._
 
-Shibboleth Project
+- There are 71 national federations currently exchanging metadata globally via eduGAIN, with 4,196 identity providers and 3,198 service providers published in the metadata exchange peering information as of March 2021. 
+- Globally, nearly 6,000 identity providers and nearly 13,000 service providers are known to exist in R&E federations (see: https://met.refeds.org/). 
 
-SimpleSAMLphp
 
-Identity Python
+This represents nearly 90 million users of this use case -  84.5 million students and  4.4 million employees involved in delivery of education relying on browser flows such as this. A detailed breakdown by jurisdiction can be found here: https://wiki.geant.org/display/eduGAIN/eduGAIN+end+users
 
-Cirrus Identity
 
-Unicon
+Participants in eduGAIN (see: https://technica.edugain.org/status )
+- AAF (Australia)
+- AAI@EduHr (Croatia)
+- AAIEduMk (North Macedonia)
+- ACOnet Identity Federation (Austria)
+- AFIRE (Armenia)
+- ARNaai (Algeria)
+- ArnesAAI Slovenska izobraževalno raziskovalna federacija (Slovenia)
+- Belnet Federation (Belgium)
+- Canadian Access Federation (Canada)
+- CAFe (Brazil)
+- CARSI (China)
+- COFRe (Chile)
+- COLFIRE (Colombia)
+- CyNet Identity Federation (Cyprus)
+- DFN-AAI (Germany)
+- Edugate (Ireland)
+- eduID.cz (Czech Republic)
+- eduId.hu (Hungary)
+- eduID Luxembourg (Luxembourg)
+- eduIDM.ma (Morocco, Western Sahara)
+- FEBAS (Belarus)
+- фEDUrus (Russia)
+- FEIDE (Norway)
+- Fédération Éducation-Recherche (France)
+- FIDERN (Zambia)
+- GakuNin (Japan)
+- Grena Identity Federation (Georgia)
+- GRNET (Greece)
+- HAKA (Finland)
+- HKAF (Hong Kong)
+- IDEM (Italy)
+- InCommon (United States)
+- INFED (India)
+- IRFED (Iran)
+- IUCC Identity Federation (Israel)
+- KAFE (Korea)
+- KRENA Identity Federation (Kyrgyzstan)
+- LAIFE (Latvia)
+- LEAF (Moldova)
+- LITNET FEDI (Lithuania)
+- LIAF (Sri Lanka)
+- MINGA (Ecuador)
+- Oman KID (Oman)
+- OMREN (Oman)
+- PEANO (Ukraine)
+- PIONIER.Id (Poland)
+- PKIFED (Pakistan)
+- RASH (Albania)
+- RCTSaai (Portugal)
+- RiċerkaNET Identity Federation (Malta)
+- RIF (Uganda)
+- RoEduNetID (Romania)
+- RUNNET AAI (Russia)
+- Maeen Identity Federation (Saudi Arabia)
+- SAFIRE (South Africa)
+- Singapore Access Federation - SGAF (Singapore)
+- SIFULAN Malaysian Access Federation (Malaysia)
+- SIR (Spain)
+- SURFconext (Netherlands)
+- SWAMID (Sweden)
+- SWITCHaai (Switzerland)
+- TAAT (Estonia)
+- Tuakiri New Zealand Access Federation (New Zealand)
+- UK federation (United Kingdom)
+- WAYF (Denmark, Iceland)
+- YETKİM (Turkey)
+- Candidate Federations
+  - AzScienceNet Identity Federation (Azerbaijan)
+  - CSTCloudFederation (China)
+  - eduID (Montenegro)
+  - FENIX (Mexico)
+  - iAMRES (Serbia)
+  - LIFE (Lebanese Identity Federation Ecosystem) (Lebanon)
+  - MAREN (Malawi)
+  - safeID (Slovakia)
+  - TARENA Identity Federation (Tajikistan)
 
-Internet2/InCommon and all of their sister national research and education networks globally.
 
-The [academic research enterprise of nearly every developed country on the planet, and many developing countries](https://technical.edugain.org/).
+The people whose academic careers revolve around their scholarly identities, as well as the students, staff and administrators who support them, number in the hundreds of millions worldwide. Some of the larger and more well-known research projects which leverage these capabilities in mission-critical globally-distributed roles are: the European Open Science Cloud, CERN, LIGO, the US National Institutes of Health, the European Space Agency, the Square Kilometer Array, The Allen Institute for Artificial Intelligence, The Modern Language Association, and nearly all US Department of Energy National Labs, among many others.
 
-US and international funding agencies
+The global e-research community has formed a group called FIM4R (Federated Identity Management for Research, https://fim4r.org/) which advocates for the use of R&E identity infrastructure as a core supporting technology. 
 
-Global academic and research publishers
 
-….
+
+In Europe, the European Open Science Cloud (EOSC), offers 1.7 million European researchers and 70 million professionals in science and technology a virtual environment with open and seamless services for storage, management, analysis and re-use of research data, across borders and scientific disciplines by federating existing scientific data infrastructures, currently dispersed across disciplines and the EU Member States.
+Recently, academic and research journals and research libraries, represented by NISO, have collaborated with R&E federations to introduce “SeamlessAccess” (https://seamlessaccess.org/), a strategy for moving journal access from IP address-based to multilateral SAML federation-based. Other industry sectors such as e-government (E-IDAS, etc.), real estate (operated by Clareity Security) and defense (EXOSTAR) are known to employ SAML federation technology, either multilateral or hub-and-spoke.
+
+Additionally, specific initiatives (software, support, or services) supporting the delivery of R&E services described above:
+
+- Shibboleth Project
+- SimpleSAMLphp
+- Identity Python
+- Internet2/InCommon and all of their sister national research and education networks globally.
+- US and international funding agencies
+- Global academic and research publishers
+
+Commercial Interests involved
+- Cirrus Identity
+- Unicon
+- AWS and their cloud platforms' ability to support SAML flows
+- Microsoft and their cloud platforms' ability to support SAML flows
+- Google and their cloud platforms' and their ability to support SAML flows
+
+
 
 
 ### Miscellaneous
