@@ -77,7 +77,7 @@ _If known or easy to assess, this section enumerates notable products, industrie
 This represents nearly 90 million users of this use case -  84.5 million students and  4.4 million employees involved in delivery of education relying on browser flows such as this. A detailed breakdown by jurisdiction can be found here: https://wiki.geant.org/display/eduGAIN/eduGAIN+end+users
 
 
-Participants in eduGAIN (see: https://technica.edugain.org/status )
+Participants in eduGAIN (see: https://technical.edugain.org/status )
 - AAF (Australia)
 - AAI@EduHr (Croatia)
 - AAIEduMk (North Macedonia)
