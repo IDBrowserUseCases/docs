@@ -20,11 +20,7 @@ Supporting the use of a central SAML IdP Discovery and Persistence service in a 
 - Reference: <https://www.oasis-open.org/committees/download.php/35389/sstc-saml-profiles-errata-2.0-wd-06-diff.pdf>, <https://kantarainitiative.github.io/SAMLprofiles/fedinterop.html>, <https://kantarainitiative.github.io/SAMLprofiles/saml2int.html>
 
 #### Browser Features Required
-- 1st party Cookie
-- 3rd party cookies
-- Redirect with link decoration
-- Persistent Local Storage
-- cross-domain postMessage
+- cross-origin access through POST message
 
 ##### Target Audience
 This is a use case currently and very actively in use in the academic community, including scholarly resource providers such as Elsevier and SpringerNature (publishers) and academic identity federation services such as the GÉANT Trusted Certificate Service.
@@ -45,7 +41,9 @@ Higher Education, Scholarly Publishing, Federation Certificate Services. See:
 
 
 ### Description Of The Flow
-A full design of the data flows used to support a central SAML discovery service are available here: <https://docs.google.com/presentation/d/1emWsyTn6trMRCCNbTHrGHYHrajtHfOZl0--T70BFe_o/edit#slide=id.p> 
+A full design of the data flows used to support a central SAML discovery service are available here: <https://docs.google.com/presentation/d/1h3XQ6BtTQ7KJkBQkIkWjktp3RXqHDXEKsa5ymrjzA-k/edit#slide=id.p> 
+
+This flow writes to browser local storage via a dedicated component which loads a non-displayed iFrame.
 
 
 ### Intended User Experience
