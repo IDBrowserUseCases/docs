@@ -1,5 +1,5 @@
-## Multilateral Federation - WAYF Discovery Services
-Supporting the use of a central SAML IdP Discovery and Persistence service in a multilateral federation scenario.
+## Protocol-Independent Cross-Origin Domain IdP Discovery
+Supporting the use of a central IdP Discovery and Persistence service in a multilateral federation scenario.
 
 ### Summary
 
@@ -15,12 +15,11 @@ Supporting the use of a central SAML IdP Discovery and Persistence service in a 
 - leifj@sunet.se
 
 #### Protocol
-- Name: SAML
-- Grant/flow (if applicable): This scenario makes use of the SAML front-channel bindings defined in OASIS SAML v2.0, specifically the Web Browser SSO Profile, Identity Provider Discovery Profile, and on rare occasions, Single Logout Profile contained in the "Profiles for the OASIS SecurityAssertion Markup Language (SAML)V2.0". Additional context for the use of these profiles and flows in the multilateral SAML federation space used in the global research and education sector is specified in the Kantara Initiative profiles. 
-- Reference: <https://www.oasis-open.org/committees/download.php/35389/sstc-saml-profiles-errata-2.0-wd-06-diff.pdf>, <https://kantarainitiative.github.io/SAMLprofiles/fedinterop.html>, <https://kantarainitiative.github.io/SAMLprofiles/saml2int.html>
+- n/a
 
 #### Browser Features Required
 - cross-origin access through POST message
+- iFrames
 
 ##### Target Audience
 This is a use case currently and very actively in use in the academic community, including scholarly resource providers such as Elsevier and SpringerNature (publishers) and academic identity federation services such as the GÉANT Trusted Certificate Service.
@@ -41,7 +40,7 @@ Higher Education, Scholarly Publishing, Federation Certificate Services. See:
 
 
 ### Description Of The Flow
-A full design of the data flows used to support a central SAML discovery service are available here: <https://docs.google.com/presentation/d/1h3XQ6BtTQ7KJkBQkIkWjktp3RXqHDXEKsa5ymrjzA-k/edit#slide=id.p> 
+A full design of the data flows used to support a central discovery service are available here: <https://docs.google.com/presentation/d/1h3XQ6BtTQ7KJkBQkIkWjktp3RXqHDXEKsa5ymrjzA-k/edit#slide=id.p> 
 
 This flow writes to browser local storage via a dedicated component which loads a non-displayed iFrame.
 
@@ -49,7 +48,7 @@ This flow writes to browser local storage via a dedicated component which loads 
 ### Intended User Experience
 SeamlessAccess allows SPs to populate a common login button with the user’s previous choice of IdP as found in their browser’s local storage. The goal is to minimize the number of times a user has to go through an IdP discovery process. The IdP is identified by a public descriptor that can’t be used for user tracking - in the case of SAML a so-called entityID (which is essentially the public URL of the IdP). Browser local storage does not contain any PII or trackable information.
 
-The goal of this flow is to enable users to have a privacy-preserving, non-tracked method to log into a web resource using their institutional credentials, with a very simple and straightforward UX that looks to the user a lot like the “Log In With X” button, but avoids a recurring “NASCAR” problem by being backed with a SAML IdP discovery service based on search, so that the user may find their IdP once, and then be automatically logged in with that one IdP in the future, without IdPs or RPs being able to collude to gain information about the user. As such, the flow persists the user’s IdP choice in browser local storage. The user can easily change their IdP selection whenever they want.
+The goal of this flow is to enable users to have a privacy-preserving, non-tracked method to log into a web resource using their institutional credentials, with a very simple and straightforward UX that looks to the user a lot like the “Log In With X” button, but avoids a recurring “NASCAR” problem by being backed with an IdP discovery service based on search, so that the user may find their IdP once, and then be automatically logged in with that one IdP in the future, without IdPs or RPs being able to collude to gain information about the user. As such, the flow persists the user’s IdP choice in browser local storage. The user can easily change their IdP selection whenever they want.
 
 ### Privacy Considerations
 The information that is persisted following the IdP discovery flow is not PII (e.g., an email address or a personal identifier) but is typically the public identifier of the IdP (i.e., the entityID). Further, that information is persisted in the user’s own browser local storage.
