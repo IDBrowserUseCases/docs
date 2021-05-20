@@ -4,11 +4,12 @@
 "RP A (Primary)"-->"User Agent": (3) 200 - HTML with JS redirect - reset cookies
 "User Agent"->"IdP/OP": (4) GET /{{end_session_endpoint}}
 note over "IdP/OP","User Agent": ?sid=abc123 \n &iss=https://login.idp.example/ \n &post_logout_redirect_uri=https://myapp.rp-a.example/home
-"IdP/OP"-->"User Agent": (5) HTML with hidden logout iframes
-note over "IdP/OP", "User Agent": <iframe src="{{rp-a}}/signout?sid=abc123" style:"display:none">\n<iframe src="{{rp-b}}/expirecookies?sid=abc123" style:"display:none">\n<iframe src="{{rp-c}}/iframe/logout?sid=abc123" style:"display:none">
-
-"User Agent"->"RP B": (6) GET /expirecookies?sid=abc123
+"IdP/OP"-->"User Agent": (5) HTML with hidden child iframes
+note over "IdP/OP", "User Agent": <iframe src="{{rp-b}}/logout?sid=abc123" style:"display:none">\n<iframe src="{{rp-c}}/logout?sid=abc123" style:"display:none">
+"User Agent"->"RP B": (6) IdP child iframe [ GET /logout?sid=abc123 ]
 "RP B"-->"User Agent": 200, Set-Cookie
-"User Agent"->"RP C": (7) GET /iframe/logout?sid=abc123
+note over "User Agent","RP B": set-cookie: ActiveSession=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/
+"User Agent"->"RP C": (7) IdP child iframe [ GET /logout?sid=abc123 ]
 "RP C"-->"User Agent": 200, Set-Cookie
+note over "User Agent","RP C": set-cookie: ActiveSession=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/
 "User Agent"->"RP A (Primary)": (8) GET /home
