@@ -1,3 +1,4 @@
 # Scenarios {#scenarios}
 
-{{scenario1.md}}
+{{scenarios/OIDC_RPSignOnFormPost.md}}
+{{scenarios/SCENARIOTEMPLATE.md}}

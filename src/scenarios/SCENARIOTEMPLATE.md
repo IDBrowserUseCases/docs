@@ -1,5 +1,5 @@
 ## TODO Scenario Title 
-TODO Brief description of the scenario.
+TODO Brief description of the scenario. This is the template source.
 
 ### Summary
 
