@@ -1,0 +1,27 @@
+@startuml
+Participant "browser" as B
+Participant "service1.acme.example" as RP1
+Participant "idp.acme.example" as IDP
+Participant "service3.roadrunner.example" as RP2
+
+note across
+Sign-in Process
+end note
+
+B->RP1: Click Sign-in Button
+RP1-->B: [redirect] set CSRF cookie\nsamesite=lax
+B->IDP: Start authentication
+IDP->IDP: Is the user already logged in?
+note right of IDP: Validate User AuthN cookies
+alt User is NOT logged in
+  IDP->B: Request user to authenticate
+  B->IDP: User credentials
+  IDP->IDP: Validate User credentials
+  IDP-->B: [redirect] Set User AuthN cookies
+else
+  IDP-->B: [redirect]
+end
+B->RP1: Authorization Code + state
+RP1->IDP: request tokens
+IDP->RP1: access, refresh, id tokens
+@enduml
