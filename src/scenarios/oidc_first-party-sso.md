@@ -35,10 +35,69 @@ Generally, the user will visit a property (service1.acme.example) and either sel
 
 When the user arrives at the login page, idp.acme.example will determine if the user is already logged in and if so, immediately redirect the user to service1.acme.example with the OIDC authorization code and state values. If the user is not currently logged in, then the browser will display UI requesting the user to login. This UI uses Javascript to determine elements of the browser and possibly stored state. The user will be asked to enter their authentication credentials. Once the user has authenticated, the browser will be redirected to service1.acme.example with the authorization code and state values.
 
-When service1.example.com receives the redirect from idp.acme.example, it will first look for the encrypted cookie value it wrote when requesting the user to authenticate. It will then validate the state value to ensure this redirect is coming from the same browser where the request was initiated. Service1.example.com will also extrace the nonce value for comparison with the nonce in the id_token when it is retrieved. Note that if the state parameter validation fails, service1.acme.example will abort the authentication with an error.
+When service1.example.com receives the redirect from idp.acme.example, it will first look for the encrypted cookie value it wrote when requesting the user to authenticate. It will then validate the state value to ensure this redirect is coming from the same browser where the request was initiated. Service1.example.com will also extract the nonce value for comparison with the nonce in the id_token when it is retrieved. Note that if the state parameter validation fails, service1.acme.example will abort the authentication with an error.
 
 The rest of the flow is standard OAuth/OpenID Connect for obtaining tokens and validating them (e.g. id_token nonce validation). Now that service1.acme.example has valid tokens and an authenticated user, it writes a session cookie on the services1.acme.example domain identifying the user who authenticated. This cookie should also be set with the samesite=lax attribute. Note that it is out of scope for this description as to how the authentication session is referenced in the service1 specific cookie. However, it is important to note that just writing the session cookie on the *.acme.example domain may not be desired because the allowed authorization access of the user at service1.acme.com may be different than the allowed authorization access at service4.acme.com.
 
+#### Sequence Diagram
+```
+                    ┌───────┐            ┌─────────────────────┐          ┌────────────────┐            ┌───────────────────────────┐
+                    │browser│            │service1.acme.example│          │idp.acme.example│            │service3.roadrunner.example│
+                    └───┬───┘            └──────────┬──────────┘          └───────┬────────┘            └─────────────┬─────────────┘
+              ╔═════════╧═══════════════════════════╧═════════════════════════════╧═══════════════════════════════════╧═════════╗    
+              ║Sign-in Process                                                                                                 ░║    
+              ╚═════════╤═══════════════════════════╤═════════════════════════════╤═══════════════════════════════════╤═════════╝    
+                        │   Click Sign-in Button    │                             │                                   │              
+                        │──────────────────────────>│                             │                                   │              
+                        │                           │                             │                                   │              
+                        │[redirect] set CSRF cookie │                             │                                   │              
+                        │samesite=lax               │                             │                                   │              
+                        │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │                             │                                   │              
+                        │                           │                             │                                   │              
+                        │                  Start authentication                   │                                   │              
+                        │────────────────────────────────────────────────────────>│                                   │              
+                        │                           │                             │                                   │              
+                        │                           │                             │────┐                                             
+                        │                           │                             │    │ Is the user already logged in?              
+                        │                           │                             │<───┘                                             
+                        │                           │                             │                                   │              
+                        │                           │                             │  ╔═════════════════════════════╗  │              
+                        │                           │                             │  ║Validate User AuthN cookies ░║  │              
+                        │                           │                             │  ╚═════════════════════════════╝  │              
+                        │                           │                             │                                   │              
+          ╔══════╤══════╪═══════════════════════════╪═════════════════════════════╪═══════════════════════════════════╗              
+          ║ ALT  │  User is NOT logged in           │                             │                                   ║              
+          ╟──────┘      │                           │                             │                                   ║              
+          ║             │              Request user to authenticate               │                                   ║              
+          ║             │<────────────────────────────────────────────────────────│                                   ║              
+          ║             │                           │                             │                                   ║              
+          ║             │                    User credentials                     │                                   ║              
+          ║             │────────────────────────────────────────────────────────>│                                   ║              
+          ║             │                           │                             │                                   ║              
+          ║             │                           │                             │────┐                              ║              
+          ║             │                           │                             │    │ Validate User credentials    ║              
+          ║             │                           │                             │<───┘                              ║              
+          ║             │                           │                             │                                   ║              
+          ║             │           [redirect] Set User AuthN cookies             │                                   ║              
+          ║             │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │                                   ║              
+          ╠═════════════╪═══════════════════════════╪═════════════════════════════╪═══════════════════════════════════╣              
+          ║             │                           │                             │                                   ║              
+          ║             │                       [redirect]                        │                                   ║              
+          ║             │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │                                   ║              
+          ╚═════════════╪═══════════════════════════╪═════════════════════════════╪═══════════════════════════════════╝              
+                        │                           │                             │                                   │              
+                        │Authorization Code + state │                             │                                   │              
+                        │──────────────────────────>│                             │                                   │              
+                        │                           │                             │                                   │              
+                        │                           │       request tokens        │                                   │              
+                        │                           │────────────────────────────>│                                   │              
+                        │                           │                             │                                   │              
+                        │                           │ access, refresh, id tokens  │                                   │              
+                        │                           │<────────────────────────────│                                   │              
+                    ┌───┴───┐            ┌──────────┴──────────┐          ┌───────┴────────┐            ┌─────────────┴─────────────┐
+                    │browser│            │service1.acme.example│          │idp.acme.example│            │service3.roadrunner.example│
+                    └───────┘            └─────────────────────┘          └────────────────┘            └───────────────────────────┘
+```
 ### Intended User Experience
 The goal of this user experience is to allow the user to share their authentication across all the properties managed by Acme.
 
