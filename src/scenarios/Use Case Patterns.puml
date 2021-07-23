@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram'
+
+/' Should all sequence diagrams have a title? '/
+title "Sequence Diagram Patterns"
+/' Should we autonumber sequences? '/
+autonumber
+
+/' Should we encourage use of Participant commands? '/
+participant "Browser" as UA
+participant "Relying Party" as RP
+participant "Identity Provider" as IDP
+
+note across: Request/Response Pattern
+UA ->o RP: Authentication Request
+RP->UA: Authentication Response
+
+/' Should we be explicit about redirects? '/
+note across: Redirect Pattern 
+UA->RP: login
+RP-->UA: redirect to IDP\nSet-Cookie: CSRF <value>
+UA->IDP: /authorize
+
+group iframe 1 [iframe from IDP]
+IDP-->UA: load iframe to RP logout URL
+UA->RP: /logout
+RP->UA: Set-Cookie: <remove session cookie>\nreturn empty content
+end
+@enduml
