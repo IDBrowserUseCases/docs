@@ -1,0 +1,37 @@
+@startuml
+autonumber
+
+participant "User Agent" as UA
+participant "Relying Party A (Primary)" as RPA
+participant "RP B" as RPB
+participant "RP C" as RPC
+participant "Identity Provider" as IDP
+
+UA->RPA: GET /app/SignOut
+RPA->>IDP: GET /.well-known/openid-configuration
+IDP-->>RPA: [200]  JSON Object
+RPA-->UA: [200] HTML with JS redirect - reset cookies
+UA->IDP: GET {{end_session_endpoint}}
+rnote over IDP,UA: ?sid=abc123 \n &iss=https://login.idp.example/ \n &post_logout_redirect_uri=https://myapp.rp-a.example/home
+IDP-->UA: HTML with hidden child iframes
+group IDP parent frame
+
+note over IDP, UA #FFAAAA: <iframe src="{{rp-b}}/logout?sid=abc123" style:"display:none">\n<iframe src="{{rp-c}}/logout?sid=abc123" style:"display:none">
+
+group IDP child iframe 1
+UA->RPB: IdP child iframe [ GET /logout?sid=abc123 ]
+RPB-->UA: 200, Set-Cookie
+note over UA,RPB: set-cookie: ActiveSession=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/
+end
+
+group IDP child iframe 2
+UA->RPC: IdP child iframe [ GET /logout?sid=abc123 ]
+RPC-->UA: 200, Set-Cookie
+note over UA,RPC: set-cookie: ActiveSession=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/
+end
+
+end
+
+UA->RPA: GET /home
+
+@enduml

@@ -46,13 +46,16 @@ The following services are known to support OIDC Front-Channel Logout:
 ### Description Of The Flow
 
 1. User clicks log out (or otherwise invokes a log out event) on the active relying party (A), resulting in a user agent call to the relying party (A).
-2. The relying party (A) may reach out to the OpenID Provider's metadata endpoint to determine the end session endpoint. The metadata JSON object is returned.
-3. The relying party's response is either a 302 redirect to the end session endpoint or an HTML page containing JavaScript to initiate the redirect. The response often includes Set-Cookie headers to reset session cookies.
-4. The user agent navigates to the OP's end session endpoint. To identify the session, a `sid` or `id_token_hint` query parameter may be included in the URL or cookies sent with the request may be used. An `iss` query parameter may be included to provide additional scope to the `sid`. An optional `post_logout_redirect_uri` query parameter may be included if a redirect back to the relying party after log out is desired.
-5. The OP responds with an HTML page containing information for the user and hidden iframes for the replying party log out endpoints where there are known active sessions.
-6. The User Agent loads the first iframe and calls RP B's log out endpoint. A 200 is returned with Set-Cookie headers to reset session cookies.
-7. The User Agent loads the second iframe and calls RP C's log out endpoint. A 200 is returned with Set-Cookie headers to reset session cookies.
-8. The OP/IdP may redirect the user agent back to RP A, often using JavaScript.
+2. The relying party (A) may reach out to the OpenID Provider's metadata endpoint to determine the end session endpoint. 
+3. The metadata JSON object is returned.
+4. The relying party's response is either a 302 redirect to the end session endpoint or an HTML page containing JavaScript to initiate the redirect. The response often includes Set-Cookie headers to reset session cookies.
+5. The user agent navigates to the OP's end session endpoint. To identify the session, a `sid` or `id_token_hint` query parameter may be included in the URL or cookies sent with the request may be used. An `iss` query parameter may be included to provide additional scope to the `sid`. An optional `post_logout_redirect_uri` query parameter may be included if a redirect back to the relying party after log out is desired.
+6. The OP responds with an HTML page containing information for the user and hidden iframes for the replying party log out endpoints where there are known active sessions.
+7. The User Agent loads the first iframe and calls RP B's log out endpoint. 
+8. A 200 is returned with Set-Cookie headers to reset session cookies for RP B.
+9. The User Agent loads the second iframe and calls RP C's log out endpoint. 
+10. A 200 is returned with Set-Cookie headers to reset session cookies for RP C.
+11. The OP/IdP may redirect the user agent back to RP A, often using JavaScript.
 
 #### Sequence Diagram
 
